@@ -90,9 +90,10 @@ nav>ul{display:flex;align-items:center;justify-content:flex-end;gap:2px;flex-wra
 nav>ul>li{position:relative}
 nav>ul>li>a{display:inline-flex;padding:10px 12px;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--text);white-space:nowrap}
 nav>ul>li>a:hover{color:var(--blue)}
+nav>ul>li>a[data-parent]{cursor:default}
 .has-sub>a::after{content:"";display:inline-block;margin-left:6px;align-self:center;border:4px solid transparent;border-top-color:currentColor;border-bottom:0}
-.sub{position:absolute;left:0;top:100%;min-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:6px;box-shadow:0 14px 34px rgba(10,35,80,.15);padding:8px;display:none;z-index:5}
-.has-sub:hover .sub,.has-sub:focus-within .sub{display:block}
+.sub{position:absolute;left:0;top:100%;min-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:6px;box-shadow:0 14px 34px rgba(10,35,80,.15);padding:8px;z-index:5;opacity:0;visibility:hidden;transform:translateY(8px);pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s ease}
+.has-sub:hover .sub,.has-sub:focus-within .sub{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
 .sub a{display:block;padding:10px 14px;text-decoration:none;font-size:15px;border-radius:4px;white-space:nowrap}
 .sub a:hover{background:var(--pale);color:var(--blue)}
 .nav .btn-apply{background:var(--red);color:#fff;padding:12px 20px;margin-left:14px;white-space:nowrap;flex:none}
@@ -105,7 +106,7 @@ nav>ul>li>a:hover{color:var(--blue)}
   header.site nav.open{display:block}
   nav>ul{flex-direction:column;align-items:stretch;justify-content:flex-start;padding:12px clamp(18px,4vw,32px) 24px;gap:0}
   nav>ul>li>a{padding:13px 0}
-  .sub{position:static;display:block;border:none;box-shadow:none;padding:0 0 6px 14px;background:transparent}
+  .sub{position:static;display:block;border:none;box-shadow:none;padding:0 0 6px 14px;background:transparent;opacity:1;visibility:visible;transform:none;pointer-events:auto;transition:none}
   .has-sub>a::after{display:none}
   .nav .btn-apply{margin:12px 0 0;justify-content:center;padding:14px 20px;width:100%}
 }
@@ -287,13 +288,13 @@ footer a:hover{color:var(--sky)}
 </head>
 <body>
 
+
 <div class="util">
   <div class="wrap">
     <div class="contact"><span>📞 Add phone number</span><span>✉ Add email address</span></div>
     <div class="links"><a href="#">School Portal</a><a href="#">Alumni</a><a href="#">Staff Mail</a><a href="#">FAQs</a><a href="#">Careers</a></div>
   </div>
 </div>
-
 <div class="ticker" aria-label="School announcements">
   <div class="ticker-track">
     <span>Admissions for the 2026/2027 academic session are now open. Apply online today</span>
@@ -304,15 +305,14 @@ footer a:hover{color:var(--sky)}
     <span>Add a school news headline here</span>
   </div>
 </div>
-
 <header class="site">
   <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="Elect Intellectual School home">
+    <a class="brand" href="index.html" aria-label="Elect Intellectual School home">
       <svg class="crest" viewBox="0 0 48 48" aria-hidden="true">
         <path d="M24 2 43 9v15c0 11-8 18-19 22C13 42 5 35 5 24V9z" fill="#0A2350"/>
-        <path d="M24 6 39.500 11.500V24c0 9-6.500 14.500-15.500 18C15 38.500 8.500 33 8.500 24V11.500z" fill="#7EC8F0"/>
-        <path d="M13 21c4-1.500 8-1 11 1 3-2 7-2.500 11-1v11c-4-1.500-8-1-11 1-3-2-7-2.500-11-1z" fill="#0A2350"/>
-        <path d="M24 22v11" stroke="#7EC8F0" stroke-width="1.500"/>
+        <path d="M24 6 39.5 11.5V24c0 9-6.5 14.5-15.5 18C15 38.5 8.5 33 8.5 24V11.5z" fill="#7EC8F0"/>
+        <path d="M13 21c4-1.5 8-1 11 1 3-2 7-2.5 11-1v11c-4-1.5-8-1-11 1-3-2-7-2.5-11-1z" fill="#0A2350"/>
+        <path d="M24 22v11" stroke="#7EC8F0" stroke-width="1.5"/>
         <path d="M15 33c3 4 6 6 9 6s6-2 9-6" stroke="#C0392B" stroke-width="2" fill="none" stroke-linecap="round"/>
       </svg>
       <span><b>Elect Intellectual<br>School</b><em>Add school motto here</em></span>
@@ -320,19 +320,14 @@ footer a:hover{color:var(--sky)}
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
     <nav id="menu" aria-label="Main">
       <ul>
-        <li><a href="#top">Home</a></li>
-        <li class="has-sub"><a href="#about">About</a>
-          <ul class="sub"><li><a href="#about">Welcome address</a></li><li><a href="#">Our history</a></li><li><a href="#">Vision and mission</a></li><li><a href="#">Staff</a></li></ul></li>
-        <li class="has-sub"><a href="#schools">Schools</a>
-          <ul class="sub"><li><a href="#schools">Nursery</a></li><li><a href="#schools">Primary</a></li><li><a href="#schools">Secondary</a></li></ul></li>
-        <li class="has-sub"><a href="#apply">Admissions</a>
-          <ul class="sub"><li><a href="#apply">How to apply</a></li><li><a href="#">Application form</a></li><li><a href="#">School fees</a></li></ul></li>
-        <li class="has-sub"><a href="#">Academics</a>
-          <ul class="sub"><li><a href="#">Curriculum</a></li><li><a href="#events">Academic calendar</a></li><li><a href="#">Clubs and activities</a></li></ul></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li class="has-sub"><a href="#contact">Contacts</a>
-          <ul class="sub"><li><a href="#contact">Contact us</a></li><li><a href="#">Location and map</a></li></ul></li>
-        <li><a class="btn btn-apply" href="#apply">Apply now</a></li>
+        <li><a href="index.html" class="current">Home</a></li>
+        <li class="has-sub"><a tabindex="0" data-parent>About</a><ul class="sub"><li><a href="about-history.html">Our history</a></li><li><a href="about-vision.html">Vision, mission & values</a></li><li><a href="about-staff.html">Board and staff</a></li><li><a href="about-song.html">School song</a></li></ul></li>
+        <li class="has-sub"><a tabindex="0" data-parent>Schools</a><ul class="sub"><li><a href="schools-nursery.html">Nursery</a></li><li><a href="schools-primary.html">Primary</a></li><li><a href="schools-secondary.html">Secondary</a></li></ul></li>
+        <li class="has-sub"><a tabindex="0" data-parent>Admissions</a><ul class="sub"><li><a href="admissions-why.html">Why choose us</a></li><li><a href="admissions-process.html">Application process</a></li><li><a href="admissions-faqs.html">FAQs</a></li><li><a href="admissions-apply.html">Apply online</a></li></ul></li>
+        <li class="has-sub"><a tabindex="0" data-parent>Academics</a><ul class="sub"><li><a href="academics-curriculum.html">Curriculum</a></li><li><a href="academics-quality.html">Quality assurance</a></li><li><a href="academics-calendar.html">Academic calendar</a></li><li><a href="academics-clubs.html">Clubs and activities</a></li></ul></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li class="has-sub"><a tabindex="0" data-parent>Contacts</a><ul class="sub"><li><a href="contact-form.html">Contact us</a></li><li><a href="contact-map.html">Location and map</a></li></ul></li>
+        <li><a class="btn btn-apply" href="admissions-apply.html">Apply now</a></li>
       </ul>
     </nav>
   </div>

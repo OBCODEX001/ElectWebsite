@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Academic Calendar | Elect Intellectual School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0A2350;--navy-deep:#071A3B;--blue:#154C9A;--sky:#7EC8F0;--sky-text:#2377B0;--red:#C0392B;--red-deep:#932015;--pale:#EEF6FC;--bg:#FFFFFF;--text:#14233F;--muted:#52627F;--line:#D6E5F1;--card:#FFFFFF;--head:#0A2350;box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1730;--pale:#0E1F3E;--text:#E8F1FB;--muted:#A5B7D1;--line:#22375C;--card:#0F2245;--head:#FFFFFF;--sky-text:#7EC8F0;--red:#E0584A}}
+:root[data-theme="dark"]{--bg:#0A1730;--pale:#0E1F3E;--text:#E8F1FB;--muted:#A5B7D1;--line:#22375C;--card:#0F2245;--head:#FFFFFF;--sky-text:#7EC8F0;--red:#E0584A}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;font-size:clamp(15px,1.4vw,17px);line-height:1.7;overflow-x:hidden}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0;line-height:1.15;color:var(--head)}
+img,svg{max-width:100%}
+a{color:inherit}
+ul{list-style:none;margin:0;padding:0}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,32px);width:100%}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--sky-text)}
+.rule{width:64px;height:3px;background:linear-gradient(90deg,var(--blue),var(--sky) 55%,var(--red));margin:18px 0 0;border-radius:2px}
+.center{text-align:center}.center .rule{margin-left:auto;margin-right:auto}
+h2 i{font-style:italic;color:var(--blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 24px;font:700 14.5px 'DM Sans',sans-serif;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;border:2px solid transparent;border-radius:4px;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-sky{background:var(--sky);color:var(--navy-deep)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-deep)}
+.btn-outline{border-color:var(--navy);color:var(--navy);background:transparent}
+.util{background:var(--navy-deep);color:#D5E4F6;font-size:14px}
+.util .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;min-height:48px;padding-top:6px;padding-bottom:6px}
+.util .contact{display:flex;gap:22px;flex-wrap:wrap}
+.util .links{display:flex}
+.util .links a{padding:0 16px;border-left:1px solid rgba(255,255,255,.14);text-decoration:none;line-height:48px;white-space:nowrap}
+.util .links a:first-child{border-left:none}
+.util a:hover{color:var(--sky)}
+@media (max-width:900px){.util .links{display:none}}
+.ticker{background:var(--sky);color:var(--navy-deep);overflow:hidden;font-weight:600;white-space:nowrap}
+.ticker-track{display:inline-flex;animation:tick 38s linear infinite;padding:12px 0}
+.ticker span{padding:0 30px;position:relative;font-size:clamp(13px,1.6vw,15px)}
+.ticker span::after{content:"";position:absolute;right:-3px;top:50%;width:5px;height:5px;background:var(--red);border-radius:50%;opacity:.85;transform:translateY(-50%)}
+@keyframes tick{to{transform:translateX(-50%)}}
+header.site{position:sticky;top:0;z-index:60;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:92px;gap:16px;flex-wrap:nowrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0;flex:none}
+.crest{width:50px;height:50px;flex:none}
+.brand b{display:block;font-family:'Playfair Display',serif;font-size:18px;line-height:1.12;color:var(--head);text-transform:uppercase;white-space:nowrap}
+.brand em{display:block;font-size:12px;font-style:italic;font-weight:600;color:var(--red);margin-top:3px;white-space:nowrap}
+nav{flex:1;min-width:0}
+nav>ul{display:flex;align-items:center;justify-content:flex-end;gap:2px;flex-wrap:nowrap}
+nav>ul>li{position:relative}
+nav>ul>li>a{display:inline-flex;padding:10px 12px;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--text);white-space:nowrap}
+nav>ul>li>a.current{color:var(--red)}
+nav>ul>li>a:hover{color:var(--blue)}
+.has-sub>a::after{content:"";display:inline-block;margin-left:6px;align-self:center;border:4px solid transparent;border-top-color:currentColor;border-bottom:0}
+.sub{position:absolute;left:0;top:100%;min-width:230px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:6px;box-shadow:0 14px 34px rgba(10,35,80,.15);padding:8px;z-index:5;opacity:0;visibility:hidden;transform:translateY(8px);pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s ease}
+.has-sub:hover .sub,.has-sub:focus-within .sub{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+.sub a{display:block;padding:10px 14px;text-decoration:none;font-size:15px;border-radius:4px;white-space:nowrap}
+.sub a:hover{background:var(--pale);color:var(--blue)}
+.nav .btn-apply{background:var(--red);color:#fff;padding:12px 20px;margin-left:14px;white-space:nowrap;flex:none}
+.nav .btn-apply:hover{background:var(--red-deep)}
+.menu-btn{display:none;background:none;border:2px solid var(--line);border-radius:6px;padding:9px 14px;font:600 15px 'DM Sans',sans-serif;color:var(--text);cursor:pointer;flex:none;align-items:center;gap:8px}
+@media (max-width:1240px){
+  .nav{min-height:76px}
+  .menu-btn{display:inline-flex}
+  header.site nav{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);display:none;max-height:80vh;overflow:auto}
+  header.site nav.open{display:block}
+  nav>ul{flex-direction:column;align-items:stretch;justify-content:flex-start;padding:12px clamp(18px,4vw,32px) 24px;gap:0}
+  nav>ul>li>a{padding:13px 0}
+  .sub{position:static;display:block;border:none;box-shadow:none;padding:0 0 6px 14px;background:transparent;opacity:1;visibility:visible;transform:none;pointer-events:auto;transition:none}
+  .has-sub>a::after{display:none}
+  .nav .btn-apply{margin:12px 0 0;justify-content:center;padding:14px 20px;width:100%}
+}
+@media (max-width:420px){.crest{width:42px;height:42px}.brand b{font-size:15.5px}.brand em{font-size:10.5px}}
+.pagehero{background:linear-gradient(120deg,var(--navy-deep),var(--blue) 75%,var(--sky));color:#fff;padding:clamp(56px,10vw,96px) 0 clamp(40px,7vw,64px)}
+.pagehero .eyebrow{color:var(--sky)}
+.pagehero h1{color:#fff;font-size:clamp(32px,5.5vw,56px);margin:14px 0 10px}
+.pagehero p{max-width:640px;color:#DCE9F8;font-size:clamp(15px,2vw,18px);margin:0}
+.crumbs{margin-top:18px;font-size:14px;color:#B9D3EE}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:#fff}
+.section{padding:clamp(48px,8vw,90px) 0}
+.section.alt{background:var(--pale)}
+.section h2{font-size:clamp(26px,4vw,42px);margin-top:12px}
+.section > .wrap > p.lead{color:var(--muted);font-size:clamp(15px,1.8vw,18px);max-width:760px;margin:18px 0 0}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:clamp(28px,5vw,48px)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,56px);margin-top:clamp(28px,5vw,48px);align-items:start}
+@media (max-width:900px){.grid-3{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.imgbox{aspect-ratio:16/10;border-radius:14px;display:flex;align-items:flex-end;padding:14px;color:#fff;font-weight:600;font-size:14px;background:linear-gradient(135deg,#9CD3F1,#154C9A)}
+.people{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:clamp(28px,5vw,48px)}
+@media (max-width:760px){.people{grid-template-columns:1fr 1fr}}
+.person{text-align:center}
+.person .av{aspect-ratio:1/1;border-radius:50%;background:linear-gradient(135deg,#BFE3F7,#7EC8F0);margin:0 auto 14px;max-width:130px}
+.person b{display:block;font-size:16px}
+.person span{color:var(--muted);font-size:14px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:14px}
+.faq summary{font-weight:700;cursor:pointer;font-size:16.5px;color:var(--head)}
+.faq p{margin:12px 0 0;color:var(--muted)}
+.steps{counter-reset:step;margin-top:clamp(28px,5vw,48px)}
+.step{display:flex;gap:20px;margin-bottom:26px}
+.step .num{flex:none;width:46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font:700 18px 'Playfair Display',serif}
+.step h3{font-size:19px;margin-bottom:4px}
+.step p{margin:0;color:var(--muted)}
+.formcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,4vw,36px)}
+.formcard label{display:block;font-weight:600;font-size:14.5px;margin:0 0 6px}
+.formcard .field{margin-bottom:18px}
+.formcard input,.formcard textarea,.formcard select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:8px;font:inherit;background:var(--bg);color:var(--text)}
+.formcard textarea{min-height:130px;resize:vertical}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-auto-rows:min(300px,30vw);gap:16px;margin-top:clamp(28px,5vw,48px)}
+.g{position:relative;border-radius:16px;overflow:hidden;color:#fff;display:flex;align-items:flex-end;padding:16px;font-weight:700;font-size:16px}
+.g::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,26,59,.6),transparent 55%)}
+.g span{position:relative;z-index:1}
+.g.tall{grid-row:span 2}
+.g.wide{grid-column:span 2}
+@media (max-width:760px){.grid{grid-template-columns:1fr 1fr;grid-auto-rows:min(200px,44vw)}}
+@media (max-width:480px){.grid{grid-template-columns:1fr}.g.tall,.g.wide{grid-row:auto;grid-column:auto}}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.filters button{background:var(--pale);border:none;padding:9px 18px;border-radius:999px;font:600 13.5px 'DM Sans',sans-serif;cursor:pointer;color:var(--head)}
+.filters button.on{background:var(--navy);color:#fff}
+.mapbox{aspect-ratio:16/9;border-radius:16px;background:linear-gradient(135deg,#BFE3F7,#154C9A);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600}
+footer{background:#08111F;color:#B8C6DA;padding:clamp(48px,8vw,84px) 0 0;font-size:16px;border-top:3px solid var(--red)}
+.foot{display:grid;grid-template-columns:1.3fr 1.1fr 1fr 1.1fr;gap:clamp(28px,5vw,56px)}
+footer .fb{font:700 24px 'Playfair Display',serif;color:#fff;text-transform:uppercase;line-height:1.1}
+footer .fm{font-size:12.5px;font-weight:700;letter-spacing:.18em;color:var(--sky);text-transform:uppercase;margin:6px 0 20px;display:block}
+footer h3{font:700 13px 'DM Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin-bottom:20px}
+footer li{margin-bottom:12px;padding-left:16px;position:relative;font-size:15.5px}
+footer li::before{content:"";position:absolute;left:0;top:.8em;width:5px;height:5px;border-radius:50%;background:var(--red)}
+footer .contact li{padding-left:0;display:flex;align-items:center;gap:8px}
+footer .contact li::before{display:none}
+footer a{text-decoration:none}
+footer a:hover{color:var(--sky)}
+.social{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.social a{width:46px;height:46px;border-radius:8px;background:#141F30;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+.social a:hover{background:var(--red)}
+.bottom{border-top:1px solid rgba(255,255,255,.06);margin-top:clamp(32px,6vw,60px);padding:24px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px;color:#5E6E88}
+.bottom nav{display:flex;gap:8px;flex-wrap:wrap}
+@media (max-width:960px){.foot{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.foot{grid-template-columns:1fr;gap:34px}.bottom{flex-direction:column}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.ticker-track{animation:none}}
+
+nav>ul>li>a[data-parent]{cursor:default}
+</style>
+</head>
+<body>
+
+<div class="util">
+  <div class="wrap">
+    <div class="contact"><span>📞 Add phone number</span><span>✉ Add email address</span></div>
+    <div class="links"><a href="#">School Portal</a><a href="#">Alumni</a><a href="#">Staff Mail</a><a href="#">FAQs</a><a href="#">Careers</a></div>
+  </div>
+</div>
+<div class="ticker" aria-label="School announcements">
+  <div class="ticker-track">
+    <span>Admissions for the 2026/2027 academic session are now open. Apply online today</span>
+    <span>Entrance examination dates: add dates here</span>
+    <span>Add a school news headline here</span>
+    <span>Admissions for the 2026/2027 academic session are now open. Apply online today</span>
+    <span>Entrance examination dates: add dates here</span>
+    <span>Add a school news headline here</span>
+  </div>
+</div>
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Elect Intellectual School home">
+      <svg class="crest" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M24 2 43 9v15c0 11-8 18-19 22C13 42 5 35 5 24V9z" fill="#0A2350"/>
+        <path d="M24 6 39.5 11.5V24c0 9-6.5 14.5-15.5 18C15 38.5 8.5 33 8.5 24V11.5z" fill="#7EC8F0"/>
+        <path d="M13 21c4-1.5 8-1 11 1 3-2 7-2.5 11-1v11c-4-1.5-8-1-11 1-3-2-7-2.5-11-1z" fill="#0A2350"/>
+        <path d="M24 22v11" stroke="#7EC8F0" stroke-width="1.5"/>
+        <path d="M15 33c3 4 6 6 9 6s6-2 9-6" stroke="#C0392B" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span><b>Elect Intellectual<br>School</b><em>Add school motto here</em></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="has-sub"><a tabindex="0" data-parent>About</a><ul class="sub"><li><a href="about-history.html">Our history</a></li><li><a href="about-vision.html">Vision, mission & values</a></li><li><a href="about-staff.html">Board and staff</a></li><li><a href="about-song.html">School song</a></li></ul></li>
+        <li class="has-sub"><a tabindex="0" data-parent>Schools</a><ul class="sub"><li><a href="schools-nursery.html">Nursery</a></li><li><a href="schools-primary.html">Primary</a></li><li><a href="schools-secondary.html">Secondary</a></li></ul></li>
+        <li class="has-sub"><a tabindex="0" data-parent>Admissions</a><ul class="sub"><li><a href="admissions-why.html">Why choose us</a></li><li><a href="admissions-process.html">Application process</a></li><li><a href="admissions-faqs.html">FAQs</a></li><li><a href="admissions-apply.html">Apply online</a></li></ul></li>
+        <li class="has-sub"><a tabindex="0" data-parent class="current">Academics</a><ul class="sub"><li><a href="academics-curriculum.html">Curriculum</a></li><li><a href="academics-quality.html">Quality assurance</a></li><li><a href="academics-calendar.html" class='current'>Academic calendar</a></li><li><a href="academics-clubs.html">Clubs and activities</a></li></ul></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li class="has-sub"><a tabindex="0" data-parent>Contacts</a><ul class="sub"><li><a href="contact-form.html">Contact us</a></li><li><a href="contact-map.html">Location and map</a></li></ul></li>
+        <li><a class="btn btn-apply" href="admissions-apply.html">Apply now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehero">
+  <div class="wrap">
+    <div class="eyebrow">Academics &mdash; academic calendar</div>
+    <h1>Term Dates & Key Events</h1>
+    <p>Term dates, breaks and examination periods.</p>
+    <div class="crumbs"><a href="index.html">Home</a> / Academic Calendar</div>
+  </div>
+</section>
+<main>
+
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Academic calendar</div>
+    <h2>Term Dates &amp; <i>Key Events</i></h2>
+    <div class="rule"></div>
+    <p class="lead" style="margin:18px 0 30px">Add your term start and end dates, mid-term breaks, and examination periods here, or link to a downloadable calendar.</p>
+        <a class="btn btn-navy" href="#">Download academic calendar (PDF)</a>
+  </div>
+</section>
+</main>
+<footer id="contact-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="fb">Elect Intellectual<br>School</div>
+        <span class="fm">Add school motto here</span>
+        <p>Add a short line about your school here. Say what you stand for and who you serve.</p>
+        <div class="social"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="X">X</a><a href="#" aria-label="YouTube">&#9654;</a></div>
+      </div>
+      <div>
+        <h3>Our sections</h3>
+        <ul><li><a href="schools-nursery.html">Nursery</a></li><li><a href="schools-primary.html">Primary</a></li><li><a href="schools-secondary.html">Secondary</a></li></ul>
+      </div>
+      <div>
+        <h3>Quick links</h3>
+        <ul><li><a href="about-history.html">About us</a></li><li><a href="admissions-why.html">Admissions</a></li><li><a href="academics-calendar.html">Academic calendar</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="#">School portal</a></li><li><a href="#">Careers</a></li></ul>
+      </div>
+      <div class="contact">
+        <h3>Contact us</h3>
+        <ul><li>📍 Add school address</li><li>📞 Add phone number</li><li>✉ Add email address</li><li>🌐 www.electintellectualschool.com</li></ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>&copy; 2026 Elect Intellectual School. All rights reserved.</span>
+      <nav aria-label="Legal"><a href="#">Privacy Policy</a><span aria-hidden="true">|</span><a href="#">Terms of Use</a><span aria-hidden="true">|</span><a href="#">Cookie Policy</a></nav>
+    </div>
+  </div>
+</footer>
+<script>
+var btn=document.getElementById('menuBtn'),menu=document.getElementById('menu');
+btn.addEventListener('click',function(){var o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+menu.addEventListener('click',function(e){
+  if(e.target.tagName==='A' && !e.target.hasAttribute('data-parent') && !e.target.parentNode.classList.contains('has-sub')){
+    menu.classList.remove('open');btn.setAttribute('aria-expanded',false);
+  }
+});
+</script>
+</body>
+</html>
