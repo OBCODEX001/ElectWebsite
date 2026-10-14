@@ -120,7 +120,7 @@ nav>ul>li>a[data-parent]{cursor:default}
 .hero{position:relative;min-height:640px;background:var(--navy-deep);color:#fff;overflow:hidden}
 .slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .8s,visibility .8s;display:flex;align-items:center}
 .slide.on{opacity:1;visibility:visible}
-.slide::before{content:"";position:absolute;inset:0;background:var(--bgimg)}
+.slide::before{content:"";position:absolute;inset:0;background:var(--bgimg);background-size:cover;background-position:center}
 .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,26,59,.94) 0%,rgba(7,26,59,.72) 55%,rgba(7,26,59,.35) 100%)}
 .slide .wrap{position:relative;z-index:2;width:100%;padding-top:56px;padding-bottom:56px}
 .slide .eyebrow{color:var(--sky);display:flex;align-items:center;gap:16px}
@@ -130,7 +130,7 @@ nav>ul>li>a[data-parent]{cursor:default}
 .slide p{font-size:clamp(15px,2.4vw,20px);max-width:640px;color:#DCE9F8;margin:0 0 30px}
 .slide .actions{display:flex;gap:12px;flex-wrap:wrap}
 .thumbs{position:absolute;right:40px;top:50%;transform:translateY(-50%);z-index:5;display:flex;flex-direction:column;gap:12px}
-.thumb{width:88px;height:56px;border-radius:4px;border:2px solid transparent;cursor:pointer;color:#fff;font:700 17px 'Playfair Display',serif;display:flex;align-items:flex-end;justify-content:flex-end;padding:4px 8px;background:var(--bgimg);opacity:.7;position:relative;overflow:hidden}
+.thumb{width:88px;height:56px;border-radius:4px;border:2px solid transparent;cursor:pointer;color:#fff;font:700 17px 'Playfair Display',serif;display:flex;align-items:flex-end;justify-content:flex-end;padding:4px 8px;background:var(--bgimg);background-size:cover;background-position:center;opacity:.7;position:relative;overflow:hidden}
 .thumb::after{content:"";position:absolute;inset:0;background:rgba(7,26,59,.35)}
 .thumb span{position:relative;z-index:1}
 .thumb.on{opacity:1;border-color:var(--sky)}
@@ -291,18 +291,18 @@ footer a:hover{color:var(--sky)}
 
 <div class="util">
   <div class="wrap">
-    <div class="contact"><span>📞 Elect Phone number</span><span>✉ Add email address</span></div>
+    <div class="contact"><span>📞 Add phone number</span><span>✉ Add email address</span></div>
     <div class="links"><a href="#">School Portal</a><a href="#">Alumni</a><a href="#">Staff Mail</a><a href="#">FAQs</a><a href="#">Careers</a></div>
   </div>
 </div>
 <div class="ticker" aria-label="School announcements">
   <div class="ticker-track">
     <span>Admissions for the 2026/2027 academic session are now open. Apply online today</span>
-    <span>Entrance examination dates: add dates here</span>
-    <span>Add a school news headline here</span>
+    <span>Entrance examination dates: 15th, 20th & 27th of March 2025</span>
+    <span>Elect Intellectual School-Trust In God</span>
     <span>Admissions for the 2026/2027 academic session are now open. Apply online today</span>
-    <span>Entrance examination dates: add dates here</span>
-    <span>Add a school news headline here</span>
+    <span>Entrance examination dates: 15th, 20th & 27th of March 2025</span>
+    <span>Elect Intellectual School-Trust In God</span>
   </div>
 </div>
 <header class="site">
@@ -336,7 +336,7 @@ footer a:hover{color:var(--sky)}
 <main id="top">
 
 <section class="hero" id="hero" aria-roledescription="carousel" aria-label="School highlights">
-  <div class="slide on" style="--bgimg:linear-gradient(135deg,#123A7A,#2C74C9 70%,#7EC8F0)">
+  <div class="slide on" style="--bgimg:url('images/classroom-4.jpg')">
     <div class="wrap">
       <div class="eyebrow">Admissions now open</div>
       <h1>Reserve Your Child's Place for <i>2026/2027</i></h1>
@@ -344,7 +344,7 @@ footer a:hover{color:var(--sky)}
       <div class="actions"><a class="btn btn-red" href="#apply">Apply online now &rarr;</a><a class="btn btn-ghost" href="#">Download prospectus</a></div>
     </div>
   </div>
-  <div class="slide" style="--bgimg:linear-gradient(135deg,#0A2350,#1B4F9C 70%,#5FB2E3)">
+  <div class="slide" style="--bgimg:url('images/classroom-2.jpg')">
     <div class="wrap">
       <div class="eyebrow">Academic excellence</div>
       <h1>Learning That Builds <i>Bright Minds</i></h1>
@@ -352,7 +352,7 @@ footer a:hover{color:var(--sky)}
       <div class="actions"><a class="btn btn-sky" href="#schools">Explore our schools &rarr;</a><a class="btn btn-ghost" href="#about">Read our welcome</a></div>
     </div>
   </div>
-  <div class="slide" style="--bgimg:linear-gradient(135deg,#0B2D63,#2F7FD0 60%,#9CD3F1)">
+  <div class="slide" style="--bgimg:url('images/classroom-1.jpg')">
     <div class="wrap">
       <div class="eyebrow">Our facilities</div>
       <h1>Classrooms Made for <i>Curious Learners</i></h1>
@@ -360,7 +360,7 @@ footer a:hover{color:var(--sky)}
       <div class="actions"><a class="btn btn-sky" href="#gallery">See the gallery &rarr;</a><a class="btn btn-ghost" href="#">Book a visit</a></div>
     </div>
   </div>
-  <div class="slide" style="--bgimg:linear-gradient(135deg,#071A3B,#154C9A 70%,#7EC8F0)">
+  <div class="slide" style="--bgimg:url('images/classroom-3.jpg')">
     <div class="wrap">
       <div class="eyebrow">How to join</div>
       <h1>Applying Is Simple. <i>Start Today</i></h1>
@@ -368,7 +368,7 @@ footer a:hover{color:var(--sky)}
       <div class="actions"><a class="btn btn-red" href="#apply">See how to apply &rarr;</a><a class="btn btn-ghost" href="#">Request a prospectus</a></div>
     </div>
   </div>
-  <div class="slide" style="--bgimg:linear-gradient(135deg,#0A2350,#3F7FCF 65%,#BFE3F7)">
+  <div class="slide" style="--bgimg:url('images/classroom-5.jpg')">
     <div class="wrap">
       <div class="eyebrow">Our school family</div>
       <h1>A Community <i>Parents Trust</i></h1>
@@ -378,11 +378,11 @@ footer a:hover{color:var(--sky)}
   </div>
 
   <div class="thumbs" aria-hidden="true">
-    <button class="thumb on" style="--bgimg:linear-gradient(135deg,#123A7A,#7EC8F0)" tabindex="-1"><span>01</span></button>
-    <button class="thumb" style="--bgimg:linear-gradient(135deg,#0A2350,#5FB2E3)" tabindex="-1"><span>02</span></button>
-    <button class="thumb" style="--bgimg:linear-gradient(135deg,#0B2D63,#9CD3F1)" tabindex="-1"><span>03</span></button>
-    <button class="thumb" style="--bgimg:linear-gradient(135deg,#071A3B,#7EC8F0)" tabindex="-1"><span>04</span></button>
-    <button class="thumb" style="--bgimg:linear-gradient(135deg,#0A2350,#BFE3F7)" tabindex="-1"><span>05</span></button>
+    <button class="thumb on" style="--bgimg:url('images/classroom-4.jpg')" tabindex="-1"><span>01</span></button>
+    <button class="thumb" style="--bgimg:url('images/classroom-2.jpg')" tabindex="-1"><span>02</span></button>
+    <button class="thumb" style="--bgimg:url('images/classroom-1.jpg')" tabindex="-1"><span>03</span></button>
+    <button class="thumb" style="--bgimg:url('images/classroom-3.jpg')" tabindex="-1"><span>04</span></button>
+    <button class="thumb" style="--bgimg:url('images/classroom-5.jpg')" tabindex="-1"><span>05</span></button>
   </div>
   <div class="hint">Hero photos go here: replace the blue backgrounds with your school pictures</div>
 </section>
