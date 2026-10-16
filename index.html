@@ -92,7 +92,7 @@ nav>ul>li>a{display:inline-flex;padding:10px 12px;font-weight:600;font-size:14px
 nav>ul>li>a:hover{color:var(--blue)}
 nav>ul>li>a[data-parent]{cursor:default}
 .has-sub>a::after{content:"";display:inline-block;margin-left:6px;align-self:center;border:4px solid transparent;border-top-color:currentColor;border-bottom:0}
-.sub{position:absolute;left:0;top:100%;min-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:6px;box-shadow:0 14px 34px rgba(10,35,80,.15);padding:8px;z-index:5;opacity:0;visibility:hidden;transform:translateY(8px);pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s ease}
+.sub{position:absolute;left:0;top:110%;min-width:220px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:6px;box-shadow:0 14px 34px rgba(10,35,80,.15);padding:8px;z-index:5;opacity:0;visibility:hidden;transform:translateY(8px);pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s ease}
 .has-sub:hover .sub,.has-sub:focus-within .sub{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
 .sub a{display:block;padding:10px 14px;text-decoration:none;font-size:15px;border-radius:4px;white-space:nowrap}
 .sub a:hover{background:var(--pale);color:var(--blue)}
@@ -193,10 +193,7 @@ nav>ul>li>a[data-parent]{cursor:default}
 .schools h2,.events h2,.gallery h2,.testi h2{font-size:clamp(26px,4.4vw,52px);margin-top:12px}
 .school-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:clamp(32px,6vw,56px) 0 40px}
 .school{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.school .img{aspect-ratio:16/10;display:flex;align-items:flex-end;padding:14px;color:#fff;font-weight:600;font-size:14px}
-.school:nth-child(1) .img{background:linear-gradient(135deg,#9CD3F1,#4FA8DE)}
-.school:nth-child(2) .img{background:linear-gradient(135deg,#3F7FCF,#154C9A)}
-.school:nth-child(3) .img{background:linear-gradient(135deg,#1B4F9C,#0A2350)}
+.school .img{aspect-ratio:16/10;display:flex;align-items:flex-end;;color:#fff;font-weight:600;font-size:14px}
 .school .b{padding:22px;display:flex;flex-direction:column;flex:1}
 .school h3{font-size:22px;margin-bottom:8px}
 .school p{margin:0 0 16px;color:var(--muted);font-size:16px;flex:1}
@@ -228,7 +225,7 @@ nav>ul>li>a[data-parent]{cursor:default}
 .gallery{padding:clamp(56px,9vw,100px) 0;background:var(--bg)}
 .grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-auto-rows:min(330px,32vw);gap:16px;margin-top:clamp(32px,6vw,56px)}
 .g{position:relative;border-radius:16px;overflow:hidden;color:#fff;display:flex;align-items:flex-end;padding:16px;font-weight:700;font-size:16px}
-.g::before{content:"";position:absolute;inset:0;background:var(--bgimg)}
+.g::before{content:"";position:absolute;inset:0;background:var(--bgimg);background-size:cover;background-position:center}
 .g::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,26,59,.6),transparent 55%)}
 .g span{position:relative;z-index:1}
 .g.tall{grid-row:span 2}
@@ -291,7 +288,7 @@ footer a:hover{color:var(--sky)}
 
 <div class="util">
   <div class="wrap">
-    <div class="contact"><span>📞 Add phone number</span><span>✉ Add email address</span></div>
+    <div class="contact"><span>📞 <a href="tel:08033080613">+2348033080613</a></span><span>✉ <a href="mailto:Electintellectualschool@gmail.com">Electintellectualschool</a></span></div>
     <div class="links"><a href="#">School Portal</a><a href="#">Alumni</a><a href="#">Staff Mail</a><a href="#">FAQs</a><a href="#">Careers</a></div>
   </div>
 </div>
@@ -384,7 +381,6 @@ footer a:hover{color:var(--sky)}
     <button class="thumb" style="--bgimg:url('images/classroom-3.jpg')" tabindex="-1"><span>04</span></button>
     <button class="thumb" style="--bgimg:url('images/classroom-5.jpg')" tabindex="-1"><span>05</span></button>
   </div>
-  <div class="hint">Hero photos go here: replace the blue backgrounds with your school pictures</div>
 </section>
 
 <div class="ctrl" id="ctrl">
@@ -425,7 +421,7 @@ footer a:hover{color:var(--sky)}
       <p>Our teachers know every pupil by name, and we work closely with parents so that what children learn at school is supported at home.</p>
       <div class="director">
         <div class="avatar-big" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.500 3.500-7 8-7s8 2.500 8 7"/></svg></div>
-        <div><b>Name of Proprietor / Principal</b><span>Title, Elect Intellectual School</span><small>Replace with a photo tomorrow</small></div>
+        <div><b>Mr Kehinde Oshagbemi / Proprietor</b><span>Founder, Elect Intellectual School</span></div>
       </div>
     </div>
     <div class="video" role="img" aria-label="Placeholder for a school video">
@@ -441,9 +437,9 @@ footer a:hover{color:var(--sky)}
     <h2>Every Stage, <i>One Standard</i></h2>
     <div class="rule"></div>
     <div class="school-grid" style="text-align:left">
-      <article class="school"><div class="img">Nursery photo</div><div class="b"><h3>Nursery</h3><p>Play-based learning that builds early reading, counting and social skills in a happy, safe setting.</p><a href="#">Learn more &rarr;</a></div></article>
-      <article class="school"><div class="img">Primary photo</div><div class="b"><h3>Primary</h3><p>A strong base in English, mathematics and science, with room for sport, art and creativity.</p><a href="#">Learn more &rarr;</a></div></article>
-      <article class="school"><div class="img">Secondary photo</div><div class="b"><h3>Secondary</h3><p>Careful preparation for WAEC, NECO and university, plus clubs, leadership roles and career guidance.</p><a href="#">Learn more &rarr;</a></div></article>
+      <article class="school"><div class="img"><img src="images/nursery.jpg" alt=""></div><div class="b"><h3>Nursery</h3><p>Play-based learning that builds early reading, counting and social skills in a happy, safe setting.</p></div></article>
+      <article class="school"><div class="img"><img src="images/primary.jpg" alt=""></div><div class="b"><h3>Primary</h3><p>A strong base in English, mathematics and science, with room for sport, art and creativity.</p></div></article>
+      <article class="school"><div class="img"><img src="images/nursery.jpg" alt=""></div><div class="b"><h3>Secondary</h3><p>Careful preparation for WAEC, NECO and university, plus clubs, leadership roles and career guidance.</p></div></article>
     </div>
     <a class="btn btn-navy" href="#apply">Register your child now</a>
   </div>
@@ -456,8 +452,8 @@ footer a:hover{color:var(--sky)}
     <div class="rule"></div>
     <div class="layout">
       <div>
-        <article class="event"><div class="badge"><span>MON</span><b>00</b></div><div><h3>Entrance examination</h3><p>First batch of entrance examinations for the 2026/2027 session.</p><div class="tags"><span>Admissions</span></div></div></article>
-        <article class="event"><div class="badge"><span>MON</span><b>00</b></div><div><h3>Inter-house sports</h3><p>Athletics, football and relay races between the school houses.</p><div class="tags"><span>Sports</span></div></div></article>
+        <article class="event"><div class="badge"><span>JUL</span><b>05</b></div><div><h3>Inter-house sports</h3><p>Athletics, football and relay races between the school houses.</p><div class="tags"><span>Sports</span></div></div></article>
+        <article class="event"><div class="badge"><span>DEC</span><b>12</b></div><div><h3>Christmas Carol</h3><p>Celebrate the joy, love, and magic of Christmas with us!</p><div class="tags"><span>Admissions</span></div></div></article>
         <article class="event"><div class="badge"><span>MON</span><b>00</b></div><div><h3>Cultural day</h3><p>Pupils celebrate Nigerian food, dress, music and dance.</p><div class="tags"><span>Culture</span></div></div></article>
         <article class="event"><div class="badge"><span>MON</span><b>00</b></div><div><h3>Graduation and prize-giving</h3><p>We honour our top pupils and our graduating class.</p><div class="tags"><span>Ceremony</span></div></div></article>
       </div>
@@ -476,12 +472,12 @@ footer a:hover{color:var(--sky)}
     <h2>Life at <i>Elect Intellectual School</i></h2>
     <div class="rule"></div>
     <div class="grid" style="text-align:left">
-      <div class="g tall" style="--bgimg:linear-gradient(160deg,#BFE3F7,#4FA8DE 55%,#154C9A)"><span>Family fun day</span></div>
+      <div class="g tall" style="--bgimg:linear-gradient(160deg,#BFE3F7,#4FA8DE 55%,#154C9A)"><span>Cultural display</span></div>
       <div class="g" style="--bgimg:linear-gradient(135deg,#2C74C9,#0A2350)"><span>School grounds</span></div>
-      <div class="g" style="--bgimg:linear-gradient(135deg,#9CD3F1,#2377B0)"><span>Science lab</span></div>
-      <div class="g wide" style="--bgimg:linear-gradient(120deg,#0A2350,#3F7FCF 60%,#9CD3F1)"><span>Cultural display</span></div>
+      <div class="g" style="--bgimg:url('images/science-lab.jpg')"><span>Science lab</span></div>
+      <div class="g wide" style="--bgimg:url('images/staff.jpg')"><span>Our Staffs</span></div>
     </div>
-    <div class="more"><a class="btn btn-outline" href="#">View full gallery</a></div>
+    <div class="more"><a class="btn btn-outline" href="Gallery.html">View full gallery</a></div>
   </div>
 </section>
 
