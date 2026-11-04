@@ -112,17 +112,30 @@ nav>ul>li>a:hover{color:var(--blue)}
 .formcard .field{margin-bottom:18px}
 .formcard input,.formcard textarea,.formcard select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:8px;font:inherit;background:var(--bg);color:var(--text)}
 .formcard textarea{min-height:130px;resize:vertical}
-.grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-auto-rows:min(300px,30vw);gap:16px;margin-top:clamp(28px,5vw,48px)}
-.g{position:relative;border-radius:16px;overflow:hidden;color:#fff;display:flex;align-items:flex-end;padding:16px;font-weight:700;font-size:16px}
-.g::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,26,59,.6),transparent 55%)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));grid-auto-rows:230px;gap:16px;margin-top:clamp(28px,5vw,48px)}
+.g{position:relative;border-radius:16px;overflow:hidden;color:#fff;display:flex;align-items:flex-end;padding:16px;font-weight:700;font-size:16px;transition:opacity .2s,transform .2s}
+.g::before{content:"";position:absolute;inset:0;background:var(--bgimg);background-size:cover;background-position:center}
+.g::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,26,59,.65),transparent 55%)}
 .g span{position:relative;z-index:1}
-.g.tall{grid-row:span 2}
-.g.wide{grid-column:span 2}
-@media (max-width:760px){.grid{grid-template-columns:1fr 1fr;grid-auto-rows:min(200px,44vw)}}
-@media (max-width:480px){.grid{grid-template-columns:1fr}.g.tall,.g.wide{grid-row:auto;grid-column:auto}}
+.g.has-photo{cursor:pointer}
+.g.has-photo:hover{transform:translateY(-3px)}
+.g.hide{display:none}
+.g .tag{position:absolute;top:12px;left:12px;z-index:1;background:rgba(7,26,59,.55);color:#CDE9FA;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+@media (max-width:760px){.grid{grid-auto-rows:190px}}
+@media (max-width:480px){.grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px}}
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .filters button{background:var(--pale);border:none;padding:9px 18px;border-radius:999px;font:600 13.5px 'DM Sans',sans-serif;cursor:pointer;color:var(--head)}
 .filters button.on{background:var(--navy);color:#fff}
+.lightbox{position:fixed;inset:0;background:rgba(5,16,35,.94);display:none;align-items:center;justify-content:center;z-index:200;padding:clamp(16px,4vw,40px)}
+.lightbox.on{display:flex}
+.lightbox figure{margin:0;max-width:min(92vw,1000px);text-align:center}
+.lightbox img{max-width:100%;max-height:78vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);display:block;margin:0 auto}
+.lightbox figcaption{color:#fff;margin-top:14px;font-weight:600;font-size:15px}
+.lightbox .lb-close{position:absolute;top:20px;right:20px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font-size:20px;cursor:pointer}
+.lightbox .lb-arrow{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;font-size:22px;cursor:pointer}
+.lightbox .lb-prev{left:16px}
+.lightbox .lb-next{right:16px}
+@media (max-width:600px){.lightbox .lb-arrow{width:40px;height:40px;font-size:18px}.lightbox .lb-close{width:40px;height:40px;top:12px;right:12px}}
 .mapbox{aspect-ratio:16/9;border-radius:16px;background:linear-gradient(135deg,#BFE3F7,#154C9A);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600}
 footer{background:#08111F;color:#B8C6DA;padding:clamp(48px,8vw,84px) 0 0;font-size:16px;border-top:3px solid var(--red)}
 .foot{display:grid;grid-template-columns:1.3fr 1.1fr 1fr 1.1fr;gap:clamp(28px,5vw,56px)}
@@ -205,22 +218,50 @@ nav>ul>li>a[data-parent]{cursor:default}
 
 <section class="section">
   <div class="wrap center">
-    <div class="filters">
-      <button class="on">All</button><button>Events</button><button>Classrooms</button><button>Sports</button><button>Facilities</button>
+    <div class="filters" id="filters">
+      <button class="on" data-filter="all">All</button>
+      <button data-filter="events">Events</button>
+      <button data-filter="classrooms">Classrooms</button>
+      <button data-filter="sports">Sports</button>
+      <button data-filter="facilities">Facilities</button>
+      <button data-filter="staff">Our Staffs</button>
     </div>
-    <div class="grid" style="text-align:left">
-      <div class="g tall" style="background:linear-gradient(160deg,#BFE3F7,#4FA8DE 55%,#154C9A)"><span>Family fun day</span></div>
-      <div class="g" style="background:linear-gradient(135deg,#2C74C9,#0A2350)"><span>School grounds</span></div>
-      <div class="g" style="background:linear-gradient(135deg,#9CD3F1,#2377B0)"><span>Science lab</span></div>
-      <div class="g wide" style="background:linear-gradient(120deg,#0A2350,#3F7FCF 60%,#9CD3F1)"><span>Cultural display</span></div>
-      <div class="g" style="background:linear-gradient(135deg,#1B4F9C,#0A2350)"><span>Sports day</span></div>
-      <div class="g" style="background:linear-gradient(135deg,#7EC8F0,#154C9A)"><span>Graduation</span></div>
-      <div class="g wide" style="background:linear-gradient(120deg,#123A7A,#7EC8F0)"><span>Classroom activity</span></div>
+    <div class="grid" id="galleryGrid" style="text-align:left">
+      <div class="g" data-cat="events" style="--bgimg:linear-gradient(160deg,#BFE3F7,#4FA8DE 55%,#154C9A)"><span class="tag">Events</span><span>Family fun day</span></div>
+      <div class="g" data-cat="facilities" style="--bgimg:linear-gradient(135deg,#2C74C9,#0A2350)"><span class="tag">Facilities</span><span>School grounds</span></div>
+      <div class="g" data-cat="facilities" style="--bgimg:linear-gradient(135deg,#9CD3F1,#2377B0)"><span class="tag">Facilities</span><span>Science lab</span></div>
+      <div class="g" data-cat="events" style="--bgimg:linear-gradient(120deg,#0A2350,#3F7FCF 60%,#9CD3F1)"><span class="tag">Events</span><span>Cultural display</span></div>
+      <div class="g" data-cat="sports" style="--bgimg:linear-gradient(135deg,#1B4F9C,#0A2350)"><span class="tag">Sports</span><span>Sports day</span></div>
+      <div class="g" data-cat="events" style="--bgimg:linear-gradient(135deg,#7EC8F0,#154C9A)"><span class="tag">Events</span><span>Graduation</span></div>
+      <div class="g" data-cat="classrooms" style="--bgimg:linear-gradient(120deg,#123A7A,#7EC8F0)"><span class="tag">Classrooms</span><span>Classroom activity</span></div>
+      <div class="g has-photo" data-cat="staff" data-img="images/staff.jpg" data-cap="Our Staffs" style="--bgimg:url('images/staff.jpg')"><span class="tag">Our Staffs</span><span>Our Staffs</span></div>
+      <div class="g has-photo" data-cat="facilities" data-img="images/science-lab.jpg" data-cap="Science lab" style="--bgimg:url('images/science-lab.jpg')"><span class="tag">Facilities</span><span>Science lab</span></div>
+      <div class="g has-photo" data-cat="classrooms" data-img="images/classroom-6.jpg" data-cap="Classroom time" style="--bgimg:url('images/classroom-6.jpg')"><span class="tag">Classrooms</span><span>Classroom time</span></div>
+      <div class="g has-photo" data-cat="classrooms" data-img="images/classroom-7.jpg" data-cap="English lesson" style="--bgimg:url('images/classroom-7.jpg')"><span class="tag">Classrooms</span><span>English lesson</span></div>
+      <div class="g has-photo" data-cat="classrooms" data-img="images/classroom-8.jpg" data-cap="Pupils at their desks" style="--bgimg:url('images/classroom-8.jpg')"><span class="tag">Classrooms</span><span>Pupils at their desks</span></div>
+      <div class="g has-photo" data-cat="classrooms" data-img="images/classroom-9.jpg" data-cap="Classwork in session" style="--bgimg:url('images/classroom-9.jpg')"><span class="tag">Classrooms</span><span>Classwork in session</span></div>
+      <div class="g has-photo" data-cat="classrooms" data-img="images/classroom-10.jpg" data-cap="Writing exercise" style="--bgimg:url('images/classroom-10.jpg')"><span class="tag">Classrooms</span><span>Writing exercise</span></div>
+      <div class="g has-photo" data-cat="classrooms" data-img="images/classroom-11.jpg" data-cap="Lesson in progress" style="--bgimg:url('images/classroom-11.jpg')"><span class="tag">Classrooms</span><span>Lesson in progress</span></div>
+      <div class="g has-photo" data-cat="classrooms" data-img="images/classroom-12.jpg" data-cap="Classroom with teacher" style="--bgimg:url('images/classroom-12.jpg')"><span class="tag">Classrooms</span><span>Classroom with teacher</span></div>
+      <div class="g has-photo" data-cat="classrooms" data-img="images/classroom-13.jpg" data-cap="Bright new classroom" style="--bgimg:url('images/classroom-13.jpg')"><span class="tag">Classrooms</span><span>Bright new classroom</span></div>
+      <div class="g has-photo" data-cat="staff" data-img="images/staff-2.jpg" data-cap="Our Staffs" style="--bgimg:url('images/staff-2.jpg')"><span class="tag">Our Staffs</span><span>Our Staffs</span></div>
+      <div class="g has-photo" data-cat="facilities" data-img="images/science-lab-2.jpg" data-cap="Science practical" style="--bgimg:url('images/science-lab-2.jpg')"><span class="tag">Facilities</span><span>Science practical</span></div>
+      <div class="g has-photo" data-cat="facilities" data-img="images/science-lab-3.jpg" data-cap="In the science lab" style="--bgimg:url('images/science-lab-3.jpg')"><span class="tag">Facilities</span><span>In the science lab</span></div>
     </div>
-    <p style="color:var(--muted);margin-top:30px">Replace these placeholder tiles with real photos once you have them.</p>
+    <p style="color:var(--muted);margin-top:30px">More photos are added as they come in &mdash; check back for updates.</p>
   </div>
 </section>
 </main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-arrow lb-prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button class="lb-arrow lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
+</div>
 <footer id="contact-footer">
   <div class="wrap">
     <div class="foot">
@@ -257,6 +298,59 @@ menu.addEventListener('click',function(e){
     menu.classList.remove('open');btn.setAttribute('aria-expanded',false);
   }
 });
+
+(function(){
+  var filters=document.getElementById('filters'),
+      grid=document.getElementById('galleryGrid'),
+      tiles=[].slice.call(grid.querySelectorAll('.g')),
+      lightbox=document.getElementById('lightbox'),
+      lbImg=document.getElementById('lbImg'),
+      lbCap=document.getElementById('lbCap'),
+      lbPrev=document.getElementById('lbPrev'),
+      lbNext=document.getElementById('lbNext'),
+      lbClose=document.getElementById('lbClose'),
+      current=-1;
+
+  filters.addEventListener('click',function(e){
+    if(e.target.tagName!=='BUTTON')return;
+    [].slice.call(filters.querySelectorAll('button')).forEach(function(b){b.classList.remove('on')});
+    e.target.classList.add('on');
+    var f=e.target.getAttribute('data-filter');
+    tiles.forEach(function(t){
+      t.classList.toggle('hide', f!=='all' && t.getAttribute('data-cat')!==f);
+    });
+  });
+
+  function photoTiles(){
+    return tiles.filter(function(t){return t.classList.contains('has-photo') && !t.classList.contains('hide')});
+  }
+  function openAt(i){
+    var list=photoTiles();
+    if(!list.length)return;
+    current=(i+list.length)%list.length;
+    var t=list[current];
+    lbImg.src=t.getAttribute('data-img');
+    lbImg.alt=t.getAttribute('data-cap')||'';
+    lbCap.textContent=t.getAttribute('data-cap')||'';
+    lightbox.classList.add('on');
+  }
+  grid.addEventListener('click',function(e){
+    var t=e.target.closest('.g.has-photo');
+    if(!t)return;
+    var list=photoTiles();
+    openAt(list.indexOf(t));
+  });
+  lbPrev.onclick=function(){openAt(current-1)};
+  lbNext.onclick=function(){openAt(current+1)};
+  lbClose.onclick=function(){lightbox.classList.remove('on')};
+  lightbox.addEventListener('click',function(e){if(e.target===lightbox)lightbox.classList.remove('on')});
+  document.addEventListener('keydown',function(e){
+    if(!lightbox.classList.contains('on'))return;
+    if(e.key==='Escape')lightbox.classList.remove('on');
+    if(e.key==='ArrowLeft')openAt(current-1);
+    if(e.key==='ArrowRight')openAt(current+1);
+  });
+})();
 </script>
 </body>
 </html>
